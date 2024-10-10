@@ -1,0 +1,44 @@
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 87px);
+}
+
+.svg-loader {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate 2s linear infinite;
+}
+
+.svg-circle {
+    fill: none;
+    stroke: var(--OrangeBg);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}

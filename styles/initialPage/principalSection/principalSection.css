@@ -8,6 +8,69 @@
     gap: 24px;
 }
 
+.hidden {
+    display: none;
+}
+
 .principal-section-title {
     font-size: clamp(1.5rem, -0.375rem + 6vw, 2rem);
+}
+
+.anime-slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.prev-button {
+    all: unset;
+    background-color: var(--OrangeBg);
+    background-image: url('../../../images/prev-button.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    transition: 0.2s ease;
+    width: 50px;
+    z-index: 999;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+}
+
+.next-button {
+    all: unset;
+    background-color: var(--OrangeBg);
+    background-image: url('../../../images/next-button.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    transition: 0.2s ease;
+    width: 50px;
+    z-index: 999;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+    }
 }
