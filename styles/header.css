@@ -1,0 +1,42 @@
+.main-header {
+    background-color: var(--OrangeBg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 24px;
+    width: 100%;
+    
+    @media (max-width: 425px) {
+        justify-content: center;
+        gap: 24px;
+    }
+}
+
+.header-button {
+    all: unset;
+    cursor: pointer;
+}
+
+.header-anchor {
+    all: unset;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--WhiteColor);
+}
+
+.header-input {
+    all: unset;
+    border: 2px solid var(--WhiteColor);
+    border-radius: 10px;
+    padding: 8px 16px;
+    color: var(--WhiteColor);
+    min-width: 300px;
+
+    &::placeholder {
+        color: var(--GrayColor);
+    }
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
+}
