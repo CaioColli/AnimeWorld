@@ -9,8 +9,8 @@ export async function fetchApi(url, id, query) {
         }
 
         const response = await fetch(fetchUrl)
-
         const data = await response.json()
+        
         return data.data // Retorna os dados, seja uma lista ou um unico valor
 
     } catch (error) {

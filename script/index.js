@@ -1,4 +1,5 @@
 import { popularAnimesDOM } from './dom/popularAnimes.js'
+import { searchItem } from './dom/searchItem.js'
 import { renderPopularAnimesList } from './render/popularAnimes.js'
 
 (async function init() {
@@ -8,6 +9,7 @@ import { renderPopularAnimesList } from './render/popularAnimes.js'
     loader.style.display = 'flex'
     
     await renderPopularAnimesList()
+    await searchItem()
     popularAnimesDOM()
 
     loader.style.display = 'none'
