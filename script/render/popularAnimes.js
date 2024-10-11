@@ -2,8 +2,6 @@ import { fetchPopularAnimes } from '../services/animeRequest.js'
 
 export async function renderPopularAnimesList() {
     const animes = await fetchPopularAnimes()
-
-    console.log(animes)
     
     const list = document.querySelector('#popular-animes-list')
 
@@ -17,8 +15,8 @@ export async function renderPopularAnimesList() {
         const genres = anime.genres.map(genre => genre.name).join(', ')
 
         const card = `
-            <li class="popular-anime-item">
-                <div class="card-anime">
+            <li class="list-item">
+                <div class="card">
                     <div class="card-content">
                         <img class="card-image" src=${anime.images.jpg.large_image_url} alt=${anime.title_english || anime.title}></img>
                         <div class="card-description">

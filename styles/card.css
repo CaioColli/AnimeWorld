@@ -1,4 +1,4 @@
-.popular-animes-list {
+.list {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -10,13 +10,13 @@
     }
 }
 
-.popular-anime-item {
+.list-item {
     all: unset;
     flex: 1 1 250px;
     min-width: 250px;
 }
 
-.card-anime {
+.card {
     background-color: var(--BlackBg);
     cursor: pointer;
     width: 100%;
