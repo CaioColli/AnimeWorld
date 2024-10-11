@@ -1,5 +1,5 @@
 export function scrollList(list, prevButton, nextButton) {
-    const scrollAmount = 300; // quantidade de pixel que vai rolar a cada clique
+    const scrollAmount = 250; // quantidade de pixel que vai rolar a cada clique
 
     prevButton.addEventListener('click', () => {
         list.scrollBy({
