@@ -17,8 +17,6 @@ export function searchItem() {
                 const animeResults = await searchAnimes(query)
                 const mangaResults = await searchMangas(query)
 
-                const combinedSearch = [...animeResults, ...mangaResults]
-
                 if (animeResults.length > 0 || mangaResults.length > 0) {
                     renderAnimeSearchResult(animeResults)
                     renderMangaSearchResult(mangaResults)
@@ -29,7 +27,7 @@ export function searchItem() {
                     searchedAnimesItemsDOM()
                     searchedMangasItemsDOM()
                 } else {
-                    renderSearchResult('Nada encontrado')
+                    alert('Nada encontrado!')
                 }
             } else {
                 clearSearchResults()

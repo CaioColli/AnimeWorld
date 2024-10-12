@@ -1,4 +1,4 @@
-import {generateInformations } from '../utils/renderHelpers.js'
+import { generateInformations } from '../utils/renderHelpers.js'
 
 export async function renderAnimeSearchResult(results) {
     const list = document.querySelector('#search-animes-result-list')
