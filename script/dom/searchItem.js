@@ -1,8 +1,13 @@
-import { renderSearchResult } from '../render/searchResult.js'
+import { renderAnimeSearchResult } from '../render/AnimeSearchResult.js'
+import { renderMangaSearchResult } from '../render/mangaSearchResult.js'
 import { fetchApi } from '../services/request.js'
+import { searchedAnimesItemsDOM } from './searchedAnimesItems.js'
+import { searchedMangasItemsDOM } from './searchedMangasItems.js'
 
 export function searchItem() {
     const searchInput = document.querySelector('#search-input')
+    const searchResultSection = document.querySelector('#search-result-section')
+    const principalSection = document.querySelector('#principal-section')
 
     searchInput.addEventListener('keydown', async (event) => {
         if (event.key === 'Enter') {
@@ -12,15 +17,22 @@ export function searchItem() {
                 const animeResults = await searchAnimes(query)
                 const mangaResults = await searchMangas(query)
 
-                const animesFind = [...animeResults]
+                const combinedSearch = [...animeResults, ...mangaResults]
 
-                if (animesFind.length > 0) {
-                    renderSearchResult(animesFind)
+                if (animeResults.length > 0 || mangaResults.length > 0) {
+                    renderAnimeSearchResult(animeResults)
+                    renderMangaSearchResult(mangaResults)
+
+                    principalSection.style.display = 'none'
+                    searchResultSection.style.display = 'flex'
+                    
+                    searchedAnimesItemsDOM()
+                    searchedMangasItemsDOM()
                 } else {
                     renderSearchResult('Nada encontrado')
                 }
             } else {
-                console.log('Criar função de limpar resultados')
+                clearSearchResults()
             }
         }
     })
@@ -50,7 +62,7 @@ export function searchItem() {
     }
 
     function clearSearchResults() {
-        const list = document.querySelector('#search-result-list')
+        const list = document.querySelector('#search-animes-result-list')
         list.innerHTML = ''
     }
 }

@@ -56,6 +56,10 @@
 
 .card-episodes,
 .card-release,
-.card-genres {
+.card-genres,
+.card-author,
+.card-chapters,
+.card-volumes,
+.card-episodes {
     color: var(--GrayColor);
 }

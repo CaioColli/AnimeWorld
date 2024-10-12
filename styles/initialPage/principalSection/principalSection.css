@@ -6,8 +6,12 @@
     gap: 24px;
 }
 
-.hidden {
+.search-result-section {
+    padding: 24px;
+    align-items: center;
     display: none;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .principal-section-title {
