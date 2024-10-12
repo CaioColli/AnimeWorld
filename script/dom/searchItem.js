@@ -1,4 +1,4 @@
-import { renderAnimeSearchResult } from '../render/AnimeSearchResult.js'
+import { renderAnimeSearchResult } from '../render/animeSearchResult.js'
 import { renderMangaSearchResult } from '../render/mangaSearchResult.js'
 import { fetchApi } from '../services/request.js'
 import { searchedAnimesItemsDOM } from './searchedAnimesItems.js'
