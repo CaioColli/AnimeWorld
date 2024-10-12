@@ -18,21 +18,48 @@
         <input type="text" placeholder="Pesquisar" class="header-input" id="search-input">
     </header>
 
-    <div class="loader" id="loader">
-        <svg viewBox="25 25 50 50" class="svg-loader">
-            <circle r="20" cy="50" cx="50" class="svg-circle"></circle>
-        </svg>
-    </div>
+    <main class="principal-content-initial-page" id="principal-content-initial-page">
+        <section class="website-presentation">
+            <div class="presentation-card">
+                <div class="presentation">
+                    <h1 class="presentation-title">Bem vindo ao AnimeWorld</h1>
+                    <h2 class="presentation-subtitle">O maior site otaku do Brasil</h2>
+                    <h3 class="presentation-subsubtitle">Descubra seu próximo anime ou mangá</h3>
+                </div>
 
-    <section class="principal-section" id="principal-section">
-        <h1 class="principal-section-title">Animes populares </h1>
+                <ul class="categories-list">
+                    <li class="categories-item-card anime-card">
+                        <a href="/" class="categorie-anchor">
+                            <p class="categoria-item-title">Animes</p>
+                        </a>
+                    </li>
+                    <li class="categories-item-card manga-card">
+                        <a href="/" class="categorie-anchor">
+                            <p class="categoria-item-title">Mangás</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-        <div class="slider-container">
-            <button id="animes-prev-button" class="slider-prev-button"></button>
-            <ul id="popular-animes-list" class="list"></ul>
-            <button id="animes-next-button" class="slider-next-button"></button>
+        <section class="loader" id="loader">
+            <svg viewBox="25 25 50 50" class="svg-loader">
+                <circle r="20" cy="50" cx="50" class="svg-circle"></circle>
+            </svg>
+        </section>
+
+        <div id="initial-page-api-content">
+            <section class="popular-animes" id="popular-animes">
+                <h1 class="">Animes populares </h1>
+        
+                <div class="slider-container">
+                    <button id="animes-prev-button" class="slider-prev-button"></button>
+                    <ul id="popular-animes-list" class="list"></ul>
+                    <button id="animes-next-button" class="slider-next-button"></button>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
     <section class="search-result-section" id="search-result-section">
         <h1>Resultado da busca</h1>

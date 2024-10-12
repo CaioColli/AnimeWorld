@@ -7,7 +7,7 @@ import { searchedMangasItemsDOM } from './searchedMangasItems.js'
 export function searchItem() {
     const searchInput = document.querySelector('#search-input')
     const searchResultSection = document.querySelector('#search-result-section')
-    const principalSection = document.querySelector('#principal-section')
+    const principalContentInitialPage = document.querySelector('#principal-content-initial-page')
 
     searchInput.addEventListener('keydown', async (event) => {
         if (event.key === 'Enter') {
@@ -21,7 +21,7 @@ export function searchItem() {
                     renderAnimeSearchResult(animeResults)
                     renderMangaSearchResult(mangaResults)
 
-                    principalSection.style.display = 'none'
+                    principalContentInitialPage.style.display = 'none'
                     searchResultSection.style.display = 'flex'
                     
                     searchedAnimesItemsDOM()

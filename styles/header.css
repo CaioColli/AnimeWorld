@@ -1,12 +1,15 @@
 .main-header {
-    background-color: var(--OrangeBg);
+    background-color: var(--TransparentBlack);
+    backdrop-filter: blur(3px);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 24px;
     width: 100%;
-    
-    @media (max-width: 425px) {
+    position: absolute;
+
+    @media (max-width: 768px) {
+        position: relative;
         justify-content: center;
         gap: 24px;
     }
@@ -18,6 +21,7 @@
 }
 
 .header-anchor {
+    
     all: unset;
     font-size: 32px;
     font-weight: 700;
