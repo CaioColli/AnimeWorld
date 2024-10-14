@@ -21,7 +21,7 @@
 
 .carousel-list-item {
     all: unset;
-    flex: 1 1 250px;
+    flex: 1 1 300px;
     min-width: 300px;
     filter: grayscale(80%);
 }

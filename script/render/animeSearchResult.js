@@ -26,7 +26,7 @@ export async function renderAnimeSearchResult(results) {
         })
 
         const card = `
-            <li class="list-item">
+            <li class="list-item" id="list-searched-anime">
                 <div class="card">
                     <div class="card-content">
                         ${imageInfo}

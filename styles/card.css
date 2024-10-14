@@ -1,7 +1,7 @@
 .list {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 24px;
     scroll-behavior: smooth;
     overflow: hidden;
 
@@ -10,10 +10,16 @@
         padding-right: 16px;
     }
 }
+
 .list-item {
     all: unset;
     flex: 1 1 250px;
     min-width: 250px;
+
+    @media (max-width: 768px) {
+        flex: 1 1 300px;
+        min-width: 300px;
+    }
 }
 
 .card {

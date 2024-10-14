@@ -14,5 +14,4 @@ export async function fetchPopularAnimes() {
 
 export async function fetchAnimeByName(name) {
     const anime = await fetchApi('anime', null, name)
-    console.log(anime)
 }

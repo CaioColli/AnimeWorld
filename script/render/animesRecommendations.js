@@ -8,7 +8,7 @@ export async function renderAnimesRecommendationsList() {
     animes.forEach(anime => {
         anime.entry.forEach(entry => {
             const card = `
-                <li class="carousel-list-item">
+                <li class="carousel-list-item" id="list-carousel-animes-recommendations">
                     <div class="carousel-card">
                         <img class="carousel-card-image" src=${entry.images.jpg.large_image_url}></img> 
                         <div class="carousel-card-description">

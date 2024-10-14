@@ -27,7 +27,7 @@ export async function renderMangaSearchResult(results) {
         })
 
         const card = `
-            <li class="list-item">
+            <li class="list-item" id="list-searched-manga">
                 <div class="card">
                     <div class="card-content">
                         ${imageInfo}

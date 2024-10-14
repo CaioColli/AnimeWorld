@@ -28,7 +28,7 @@ export async function renderPopularAnimesList() {
         })
 
         const card = `
-            <li class="list-item">
+            <li class="list-item" id="list-popular-animes">
                 <div class="card">
                     <div class="card-content">
                         ${imageInfo}
