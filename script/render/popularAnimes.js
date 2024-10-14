@@ -8,31 +8,35 @@ export async function renderPopularAnimesList() {
 
     animes.forEach(anime => {
         const {
-            episodesInfo,
-            releaseYear,
-            genresInfo,
             authorInfo,
             chaptersInfo,
+            episodesInfo,
+            genresInfo,
+            imageInfo,
+            releaseYearInfo,
+            titleInfo,
             volumesInfo
         } = generateInformations({
-            episodes: anime.episodes,
-            year: anime.year,
-            genres: anime.genres,
             authors: anime.authors,
             chapters: anime.chapters,
-            volumes: anime.volumes
+            episodes: anime.episodes,
+            genres: anime.genres,
+            image: anime.images.jpg.large_image_url,
+            volumes: anime.volumes,
+            title: anime.title,
+            year: anime.year,
         })
 
         const card = `
             <li class="list-item">
                 <div class="card">
                     <div class="card-content">
-                        <img class="card-image" src=${anime.images.jpg.large_image_url} alt=${anime.title_english || anime.title}></img>
+                        ${imageInfo}
                         <div class="card-description">
-                            <h2 class="card-title">${anime.title_english || anime.title}</h2> 
+                            ${titleInfo}
                             ${episodesInfo}
-                            ${releaseYear}
-                            <span class="card-genres">Gêneros do anime: ${genresInfo}
+                            ${releaseYearInfo}
+                            ${genresInfo}
                             ${authorInfo}
                             ${chaptersInfo}
                             ${volumesInfo}

@@ -1,19 +1,24 @@
 import { generateInformations } from '../utils/renderHelpers.js'
 
+
 export async function renderMangaSearchResult(results) {
     const list = document.querySelector('#search-mangas-result-list')
     list.innerHTML = ''
 
     results.forEach(result => {
         const {
-            episodesInfo,
-            releaseYear,
-            genresInfo,
             authorInfo,
             chaptersInfo,
+            episodesInfo,
+            genresInfo,
+            imageInfo,
+            releaseYearInfo,
+            titleInfo,
             volumesInfo
         } = generateInformations({
             episodes: result.episodes,
+            title: result.title_english || result.title,
+            image: result.images.jpg.large_image_url,
             year: result.year,
             genres: result.genres,
             authors: result.authors,
@@ -25,15 +30,15 @@ export async function renderMangaSearchResult(results) {
             <li class="list-item">
                 <div class="card">
                     <div class="card-content">
-                        <img class="card-image" src=${result.images.jpg.large_image_url} alt=${result.title_english || result.title}></img>
+                        ${imageInfo}
                         <div class="card-description">
-                            <h2 class="card-title">${result.title_english || result.title}</h2> 
+                            ${titleInfo}
                             ${episodesInfo}
-                            ${releaseYear}
-                            <span class="card-genres">Gêneros: ${genresInfo}</span>
-                            ${authorInfo}
+                            ${releaseYearInfo}
                             ${chaptersInfo}
                             ${volumesInfo}
+                            ${authorInfo}
+                            ${genresInfo}
                         </div>
                     </div>
                 </div>

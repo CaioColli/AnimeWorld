@@ -8,10 +8,13 @@ export function searchItem() {
     const searchInput = document.querySelector('#search-input')
     const searchResultSection = document.querySelector('#search-result-section')
     const principalContentInitialPage = document.querySelector('#principal-content-initial-page')
+    const loadingOverlay = document.querySelector('#overlay')
 
     searchInput.addEventListener('keydown', async (event) => {
         if (event.key === 'Enter') {
             const query = event.target.value.trim()
+
+            loadingOverlay.style.display = 'flex'
 
             if (query) {
                 const animeResults = await searchAnimes(query)
@@ -23,6 +26,7 @@ export function searchItem() {
 
                     principalContentInitialPage.style.display = 'none'
                     searchResultSection.style.display = 'flex'
+                    loadingOverlay.style.display = 'none'
                     
                     searchedAnimesItemsDOM()
                     searchedMangasItemsDOM()

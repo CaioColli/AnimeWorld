@@ -3,8 +3,8 @@ import { scrollList } from '../utils/scrollList.js'
 
 export function popularAnimesDOM() {
     const list = document.querySelector('#popular-animes-list')
-    const prevButton = document.querySelector('#animes-prev-button')
-    const nextButton = document.querySelector('#animes-next-button')
+    const prevButton = document.querySelector('#popular-animes-prev-button')
+    const nextButton = document.querySelector('#popular-animes-next-button')
 
     prevButton.style.display = 'none'
 

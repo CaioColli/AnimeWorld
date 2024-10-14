@@ -18,6 +18,14 @@
         <input type="text" placeholder="Pesquisar" class="header-input" id="search-input">
     </header>
 
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <svg viewBox="25 25 50 50" class="svg-loader">
+                <circle r="20" cy="50" cx="50" class="svg-circle"></circle>
+            </svg>
+        </div>
+    </div>
+
     <main class="principal-content-initial-page" id="principal-content-initial-page">
         <section class="website-presentation">
             <div class="presentation-card">
@@ -48,23 +56,37 @@
             </svg>
         </section>
 
-        <div id="initial-page-api-content">
-            <section class="popular-animes" id="popular-animes">
-                <h1 class="">Animes populares </h1>
-        
+        <div class="initial-page-content" id="initial-page-content">
+            <section class="items-contents" id="popular-animes">
+                <div class="subtitle-container">
+                    <h2 class="subtitle">Animes populares</h2>
+                </div>
+
                 <div class="slider-container">
-                    <button id="animes-prev-button" class="slider-prev-button"></button>
+                    <button id="popular-animes-prev-button" class="slider-prev-button"></button>
                     <ul id="popular-animes-list" class="list"></ul>
-                    <button id="animes-next-button" class="slider-next-button"></button>
+                    <button id="popular-animes-next-button" class="slider-next-button"></button>
+                </div>
+            </section>
+
+            <section class="items-contents" id="animes-recommendations">
+                <div class="subtitle-container">
+                    <h2 class="subtitle">Animes recomendados</h2>
+                </div>
+
+                <div class="carousel-container">
+                    <button id="animes-recommendations-prev-button" class="carousel-prev-button"></button>
+                    <ul id="animes-recommendations-list" class="carousel-list"></ul>
+                    <button id="animes-recommendations-next-button" class="carousel-next-button"></button>
                 </div>
             </section>
         </div>
     </main>
 
     <section class="search-result-section" id="search-result-section">
-        <h1>Resultado da busca</h1>
+        <h2 class="subtitle">Resultado da busca</h2>
 
-        <h2>Animes econtrados</h2>
+        <h3>Animes econtrados</h3>
         <div class="slider-container">
             <button id="searched-animes-items-prev-button" class="slider-prev-button"></button>
             <ul id="search-animes-result-list" class="list"></ul>

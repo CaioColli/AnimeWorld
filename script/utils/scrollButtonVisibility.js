@@ -10,5 +10,5 @@ export function updateButtonVisibility(list) {
 
 export function applyButtonVisibility(prevButton, nextButton, { prevButtonVisible, nextButtonVisible }) {
     prevButton.style.display = prevButtonVisible ? 'block' : 'none'
-    nextButton.style.display = nextButtonVisible ? 'block' : 'none'
+    //nextButton.style.display = nextButtonVisible ? 'block' : 'none'
 }

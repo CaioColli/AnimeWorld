@@ -7,9 +7,9 @@
 
     @media (max-width: 768px) {
         flex-wrap: nowrap;
+        padding-right: 16px;
     }
 }
-
 .list-item {
     all: unset;
     flex: 1 1 250px;
@@ -17,7 +17,7 @@
 }
 
 .card {
-    background-color: var(--BlackBg);
+    background-color: var(--GrayBg);
     cursor: pointer;
     width: 100%;
     height: 100%;

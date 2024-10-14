@@ -1,3 +1,20 @@
+.overlay {
+    background-color: var(--OverlayBg);
+    display: none;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+.overlay-content {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+}
+
 .principal-content-initial-page {
     display: flex;
     flex-direction: column;
@@ -55,14 +72,6 @@
     font-size: clamp(1.125rem, 0.6563rem + 1.5vw, 1.5rem);
 }
 
-.search-result-section {
-    align-items: center;
-    display: none;
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px;
-}
-
 .categories-list {
     display: flex;
     gap: 8px;
@@ -111,11 +120,38 @@
     width: 100%;
 }
 
-.popular-animes {
-    align-items: center;
+.initial-page-content {
+    flex-direction: column;
+    gap: 48px;
+}
+
+.items-contents {
+    padding: 0 48px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    @media (max-width: 768px) {
+        align-items: center;
+        padding: 0 0 0 24px;
+    }
+}
+
+.subtitle-container {
+    background-color: var(--GrayBg);
+    border-radius: 10px;
+    padding: 16px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        width: fit-content;
+        background-color: transparent;
+    }
+}
+
+.subtitle {
+    font-size: clamp(1.5rem, 0.875rem + 2vw, 2rem);
+    color: var(--WhiteColor);
 }
 
 .slider-container {
@@ -148,6 +184,7 @@
 
     @media (max-width: 768px) {
         display: block;
+        left: 16px;
     }
 }
 
@@ -174,5 +211,20 @@
 
     @media (max-width: 768px) {
         display: block;
+        right: 16px;
     }
+}
+
+.anime-recommendation {
+    background-color: aqua;
+    width: 100%;
+    
+}
+
+.search-result-section {
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
 }

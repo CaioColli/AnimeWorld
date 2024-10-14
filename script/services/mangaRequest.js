@@ -5,13 +5,9 @@ export async function fetchPopularManga() {
 
     if (response && Array.isArray(response)) {
         const mangas = response.slice(0, 6)
-        console.log(mangas)
+        return mangas
     } else {
         console.error('Nenhum mangá encontrado.')
+        return []
     }
-}
-
-export async function fetchMangaByName(name) {
-    const manga = await fetchApi('manga', null, name)
-    console.log(manga)
 }

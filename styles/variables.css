@@ -3,7 +3,9 @@
     --WhiteColor: #f5f5f5;
     --WhiteBg: #f7f7f7;
     --GrayColor: #dbdbdb;
+    --GrayBg: #777777 ;
     --BlackBg: #303030;
     --BlackColor: #000000;
     --TransparentBlack : rgba(0, 0, 0, 0.300);
+    --OverlayBg: rgba(0, 0, 0, 0.600);
 }
