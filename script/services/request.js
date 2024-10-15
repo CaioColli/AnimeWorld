@@ -1,11 +1,15 @@
-export async function fetchApi(url, id, query) {
+export async function fetchApi(url, id, extra) {
     try {
         let fetchUrl = `https://api.jikan.moe/v4/${url}`
 
         if (id) {
             fetchUrl += `/${id}`
-        } else if (query) {
-            fetchUrl += `?q=${encodeURIComponent(query)}&sfw`
+
+            if (extra === 'full') {
+                fetchUrl += '/full'
+            }
+        } else if (extra) {
+            fetchUrl += `?q=${encodeURIComponent(extra)}&sfw`
         }
 
         const response = await fetch(fetchUrl)

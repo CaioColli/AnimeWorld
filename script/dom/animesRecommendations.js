@@ -51,6 +51,9 @@ export function animesRecommendationsDOM() {
             item.addEventListener('click', () => {
                 currentIndex = index
                 updateActiveItem()
+
+                const animeId = item.getAttribute('data-id')
+                window.location.href = `/dynamic.html?id=${animeId}`
             })
         })
 

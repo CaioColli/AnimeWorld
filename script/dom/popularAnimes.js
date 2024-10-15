@@ -1,7 +1,13 @@
-import { carousel } from '../utils/scrollList.js'
+import {
+    carousel
+} from '../utils/scrollList.js'
 
 export function popularAnimesDOM() {
-    const {calculateScrollPosition, shouldHidePrevButton, setActiveItem } = carousel()
+    const {
+        calculateScrollPosition,
+        shouldHidePrevButton,
+        setActiveItem
+    } = carousel()
 
     const list = document.querySelector('#popular-animes-list')
     const prevButton = document.querySelector('#popular-animes-prev-button')
@@ -20,7 +26,7 @@ export function popularAnimesDOM() {
             list.scrollTo({
                 left: scrollPosition,
                 behavior: 'smooth'
-            })  
+            })
         }
 
         function updateButtonVisibility() {
@@ -49,6 +55,11 @@ export function popularAnimesDOM() {
             item.addEventListener('click', () => {
                 currentIndex = index
                 updateActiveItem()
+
+                const animeId = item.getAttribute('data-id')
+                //window.location.href = `/pages/anime.html?${animeId}`
+                //window.location.href = `/pages/anime.html?id=${animeId}`
+                window.location.href = `/dynamic.html?id=${animeId}`
             })
         })
 
@@ -57,18 +68,3 @@ export function popularAnimesDOM() {
         console.error('Elementos não encontrados para a funcionalidade de carrossel')
     }
 }
-
-/*
-prevButton.style.display = 'none'
-
-if (list && prevButton && nextButton) {
-    scrollList(list, prevButton, nextButton)
-
-    list.addEventListener('scroll', () => {
-        const visibility = updateButtonVisibility(list)
-        applyButtonVisibility(prevButton, nextButton, visibility)
-    })
-} else {
-    console.error('Elementos não encontrados para a funcionalidade de scroll')
-}
-*/

@@ -12,6 +12,11 @@ export async function fetchPopularAnimes() {
     }
 }
 
-export async function fetchAnimeByName(name) {
-    const anime = await fetchApi('anime', null, name)
+export async function fetchAnimeById(id) {
+    try {
+        const data = await fetchApi('anime', id, 'full')
+        return data
+    } catch (error) {
+        console.error('Erro ao buscar o anime', error)
+    }
 }

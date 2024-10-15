@@ -1,0 +1,14 @@
+.block {
+    position: relative;
+}
+
+.item-container {
+    display: flex;
+    padding: 48px;
+}
+
+.side-content {
+    padding: 24px;
+    background-color: var(--GrayBg);
+    border-radius: 10px;
+}

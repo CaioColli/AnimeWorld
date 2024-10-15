@@ -43,7 +43,6 @@ export function searchItem() {
         const response = await fetchApi('anime', null, query)
 
         if (response && Array.isArray(response)) {
-            console.table(response)
             return response
         } else {
             console.error('Nenhum resultado encontrado')
@@ -55,7 +54,6 @@ export function searchItem() {
         const response = await fetchApi('manga', null, query)
 
         if (response && Array.isArray(response)) {
-            console.table(response)
             return response
         } else {
             console.error('Nenhum resultado encontrado')

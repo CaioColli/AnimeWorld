@@ -3,6 +3,8 @@ import { generateInformations } from '../utils/renderHelpers.js'
 
 export async function renderPopularAnimesList() {
     const animes = await fetchPopularAnimes()
+
+    //console.log(animes)
     
     const list = document.querySelector('#popular-animes-list')
 
@@ -28,7 +30,7 @@ export async function renderPopularAnimesList() {
         })
 
         const card = `
-            <li class="list-item" id="list-popular-animes">
+            <li class="list-item" id="list-popular-animes" data-id='${anime.mal_id}'>
                 <div class="card">
                     <div class="card-content">
                         ${imageInfo}
