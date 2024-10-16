@@ -1,13 +1,25 @@
 import { generateInformations } from '../utils/renderHelpers.js'
 
 export async function renderDynamicItem(details) {
+    const container = document.querySelector('#dynamic-item')
+    const header = document.querySelector('#dynamic-header')
+
     if (!details) {
         console.error('Nenhum detalhe sobre o item selecionado!')
+        header.style.display = 'none'
+
+        container.innerHTML = `
+            <section class="item-not-found">
+                <h1 class="item-not-found-title">404</h1>
+                <h2 class="item-not-found-subTitle">Não encontramos nenhum dado sobre o item</h2>
+                <div class="item-not-found-bg"></div>
+                <button class="item-not-found-button">
+                    <a class="item-not-found-anchor" href="/index.html">Home</a>
+                </button>
+            </section>
+        `
         return
     }
-
-    const isAnime = !!details.episodes // Verifica se é anime pela presença do campo 'episodes'
-    const isManga = !!details.chapters // Verifica se é mangá pela presença do campo 'chapters'
 
     const {
         authorInfo,
@@ -45,8 +57,6 @@ export async function renderDynamicItem(details) {
         liClassName: 'selected-content-header-item'
     })
 
-    const container = document.querySelector('#dynamic-item')
-
     container.innerHTML = `
         <div class="item-container">
         
@@ -64,9 +74,12 @@ export async function renderDynamicItem(details) {
                     <h3 class="side-description-title">Informações</h3>
 
                     <ul class="item-content-side-list">
-                        <li class="item-content-side-list-item">${episodesInfo}</li>
-                        <li class="item-content-side-list-item">${releaseYearInfo}</li>
-                        <li class="item-content-side-list-item">${genresInfo}</li>
+                        ${episodesInfo}
+                        ${authorInfo}
+                        ${chaptersInfo}
+                        ${volumesInfo}
+                        ${releaseYearInfo}
+                        ${genresInfo}
                     </ul>
                 </div>
             </aside>

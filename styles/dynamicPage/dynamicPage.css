@@ -186,3 +186,62 @@
     height: 100%;
     border-radius: 10px;
 }
+
+
+.item-not-found {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100vh;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+}
+
+.item-not-found-title {
+    font-size: clamp(1.5rem, -0.375rem + 6vw, 3rem);
+    color: var(--OrangeBg);
+}
+
+.item-not-found-subTitle {
+    font-size: clamp(1.125rem, 0.0313rem + 3.5vw, 2rem);
+    color: var(--WhiteColor);
+    max-width: 80%;
+}
+
+.item-not-found-bg {
+    background-image: url('../../images/notFoundSecondary.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    height: 50%;
+    width: 50%;
+
+    @media (max-width: 768px) {
+        min-width: 80%;
+    }
+}
+
+.item-not-found-button {
+    all: unset;
+    background-color: var(--OrangeBg);
+    color: var(--WhiteColor);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    transition: 0.2s ease;
+    font-size: 24px;
+
+    &:hover {
+        transform: scale(0.98);
+    }
+}
+
+.item-not-found-anchor {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+}

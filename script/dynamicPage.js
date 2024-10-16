@@ -35,6 +35,8 @@ export async function logItemDetail() {
             itemDetails = await fetchMangaById(itemId)
         }
 
+        console.log('Detalhes do item:', itemDetails)
+
         loadingOverlay.style.display = 'none'
         renderDynamicItem(itemDetails)
     } catch (error) {
