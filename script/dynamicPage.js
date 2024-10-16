@@ -10,6 +10,9 @@ function getAnimeIdFromUrl() {
 // Função para buscar e logar os detalhes do anime
 export async function logAnimeDetails() {
     const animeId = getAnimeIdFromUrl()
+    const loadingOverlay = document.querySelector('#overlay')
+
+    loadingOverlay.style.display = 'flex'
     
     if (!animeId) {
         console.error('Anime ID não encontrado na URL.')
@@ -19,6 +22,7 @@ export async function logAnimeDetails() {
     try {
         const animeDetails = await fetchAnimeById(animeId)
         console.log('Detalhes do Anime:', animeDetails)
+        loadingOverlay.style.display = 'none'
         renderDynamicItem(animeDetails)
     } catch (error) {
         console.error('Erro ao buscar anime:', error)

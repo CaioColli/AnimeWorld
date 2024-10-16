@@ -66,6 +66,7 @@
 .card-author,
 .card-chapters,
 .card-volumes,
-.card-episodes {
+.card-episodes,
+.card-favorites {
     color: var(--GrayColor);
 }

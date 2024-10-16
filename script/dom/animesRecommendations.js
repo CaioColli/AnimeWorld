@@ -1,7 +1,13 @@
-import { carousel } from '../utils/scrollList.js'
+import {
+    carousel
+} from '../utils/scrollList.js'
 
 export function animesRecommendationsDOM() {
-    const {calculateScrollPosition, shouldHidePrevButton, setActiveItem } = carousel()
+    const {
+        calculateScrollPosition,
+        shouldHidePrevButton,
+        setActiveItem
+    } = carousel()
 
     const prevButton = document.querySelector('#animes-recommendations-prev-button')
     const nextButton = document.querySelector('#animes-recommendations-next-button')
@@ -21,7 +27,7 @@ export function animesRecommendationsDOM() {
             carouselList.scrollTo({
                 left: scrollPosition,
                 behavior: 'smooth'
-            })            
+            })
         }
 
         function updateButtonVisibility() {
@@ -49,11 +55,13 @@ export function animesRecommendationsDOM() {
 
         items.forEach((item, index) => {
             item.addEventListener('click', () => {
-                currentIndex = index
-                updateActiveItem()
-
-                const animeId = item.getAttribute('data-id')
-                window.location.href = `/dynamic.html?id=${animeId}`
+                if (index === currentIndex) {
+                    const animeId = item.getAttribute('data-id')
+                    window.location.href = `/dynamic.html?id=${animeId}`
+                } else {
+                    currentIndex = index
+                    updateActiveItem()
+                }
             })
         })
 

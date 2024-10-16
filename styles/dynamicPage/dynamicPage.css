@@ -1,14 +1,188 @@
 .block {
-    position: relative;
+    position: absolute;
+    background-color: var(--TransparentBlack);
+    backdrop-filter: blur(3px);
 }
 
 .item-container {
+    background-image: url('../../images/secondary-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    padding: 48px;
+    padding: 120px 48px;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .side-content {
-    padding: 24px;
+    padding: 16px;
     background-color: var(--GrayBg);
+    border-radius: 10px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.selected-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.selected-title-info {
+    font-size: clamp(1.5rem, 0.875rem + 2vw, 2rem);
+    color: var(--WhiteColor);
+}
+
+.selected-favorites-info {
+    display: flex;
+    color: var(--WhiteColor);
+    font-size: 20px;
+    gap: 8px;
+}
+
+.favorites-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../icons/favorite.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.side-description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.side-description-title {
+    color: var(--WhiteColor);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.item-content-side-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item-content-side-list-item {
+    all: unset;
+}
+
+.selected-episodes-info,
+.selected-release-year,
+.selected-genres-info {
+    color: var(--WhiteColor);
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
+    height: auto;
+}
+
+.item-content-header {
+    background-color: var(--GrayBg);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+}
+
+.selected-content-header-list {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.selected-content-header-item {
+    all: unset;
+    background-color: var(--OrangeBg);
+    border-radius: 10px;
+    color: var(--WhiteColor);
+    flex: auto;
+    min-width: 100px;
+    width: fit-content;
+}
+
+.links-anchor {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 16px 0;
+    width: 100%;
+}
+
+.trailer-container {
+    height: 100%;
+}
+
+.trailer-content {
+    flex-grow: 1;
+    padding: 24px;
+    border-radius: 10px;
+    height: fit-content;
+    background-color: var(--GrayBg);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+}
+
+.title-article {
+    color: var(--WhiteColor);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.selected-trailer-video {
+    all: unset;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+}
+
+.trailer-not-found-content {
+    flex-grow: 1;
+    height: 500px;
+    position: relative;
+}
+
+.trailer-not-found-message {
+    background-color: var(--TransparentBlack);
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    padding: 16px;
+    position: absolute;
+    width: 100%;
+}
+
+.trailer-not-found-message-title {
+    color: var(--WhiteColor);
+
+}   
+
+.trailer-not-found {
+    background-image: url('../../images/notFound.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
