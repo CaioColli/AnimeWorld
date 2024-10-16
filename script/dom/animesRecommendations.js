@@ -1,6 +1,4 @@
-import {
-    carousel
-} from '../utils/scrollList.js'
+import { carousel } from '../utils/scrollList.js'
 
 export function animesRecommendationsDOM() {
     const {
@@ -57,7 +55,7 @@ export function animesRecommendationsDOM() {
             item.addEventListener('click', () => {
                 if (index === currentIndex) {
                     const animeId = item.getAttribute('data-id')
-                    window.location.href = `/dynamic.html?id=${animeId}`
+                    window.location.href = `/dynamic.html?type=anime&id=${animeId}`
                 } else {
                     currentIndex = index
                     updateActiveItem()

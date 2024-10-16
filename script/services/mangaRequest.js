@@ -11,3 +11,12 @@ export async function fetchPopularManga() {
         return []
     }
 }
+
+export async function fetchMangaById(id) {
+    try {
+        const data = await fetchApi('manga', id, 'full')
+        return data
+    } catch (error) {
+        console.error('Erro ao buscar o mangá', error)
+    }
+}

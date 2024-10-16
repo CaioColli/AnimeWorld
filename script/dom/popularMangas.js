@@ -1,20 +1,20 @@
 import { carousel } from '../utils/scrollList.js'
 
-export function popularAnimesDOM() {
+export function popularMangasDOM() {
     const {
         calculateScrollPosition,
         shouldHidePrevButton,
         setActiveItem
     } = carousel()
 
-    const list = document.querySelector('#popular-animes-list')
-    const prevButton = document.querySelector('#popular-animes-prev-button')
-    const nextButton = document.querySelector('#popular-animes-next-button')
+    const list = document.querySelector('#popular-mangas-list')
+    const prevButton = document.querySelector('#popular-mangas-prev-button')
+    const nextButton = document.querySelector('#popular-mangas-next-button')
 
     let currentIndex = 0
 
     if (list && prevButton && nextButton) {
-        const items = document.querySelectorAll('#list-popular-animes')
+        const items = document.querySelectorAll('#list-popular-mangas')
 
         function scrollToActiveItem() {
             const activeItem = items[currentIndex]
@@ -54,8 +54,8 @@ export function popularAnimesDOM() {
                 currentIndex = index
                 updateActiveItem()
 
-                const animeId = item.getAttribute('data-id')
-                window.location.href = `/dynamic.html?type=anime&id=${animeId}`
+                const mangaID = item.getAttribute('data-id')
+                window.location.href = `/dynamic.html?type=manga&id=${mangaID}`
             })
         })
 

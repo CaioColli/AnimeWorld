@@ -1,27 +1,28 @@
 import { carousel } from '../utils/scrollList.js'
 
-export function popularAnimesDOM() {
+export function mangasRecommendationsDOM() {
     const {
         calculateScrollPosition,
         shouldHidePrevButton,
         setActiveItem
     } = carousel()
 
-    const list = document.querySelector('#popular-animes-list')
-    const prevButton = document.querySelector('#popular-animes-prev-button')
-    const nextButton = document.querySelector('#popular-animes-next-button')
+    const prevButton = document.querySelector('#mangas-recommendations-prev-button')
+    const nextButton = document.querySelector('#mangas-recommendations-next-button')
+    const carouselList = document.querySelector('#mangas-recommendations-list')
 
     let currentIndex = 0
 
-    if (list && prevButton && nextButton) {
-        const items = document.querySelectorAll('#list-popular-animes')
+    if (carouselList && prevButton && nextButton) {
+        const items = document.querySelectorAll('#list-carousel-mangas-recommendations')
 
+        // Função para centralizar o item ativo no carrossel
         function scrollToActiveItem() {
             const activeItem = items[currentIndex]
-            const listWidth = list.offsetWidth
+            const listWidth = carouselList.offsetWidth
             const scrollPosition = calculateScrollPosition(activeItem, listWidth)
 
-            list.scrollTo({
+            carouselList.scrollTo({
                 left: scrollPosition,
                 behavior: 'smooth'
             })
@@ -31,6 +32,7 @@ export function popularAnimesDOM() {
             prevButton.style.display = shouldHidePrevButton(currentIndex) ? 'none' : 'flex'
         }
 
+        // Função para atualizar o item ativo
         function updateActiveItem() {
             setActiveItem(items, currentIndex)
             scrollToActiveItem()
@@ -51,11 +53,13 @@ export function popularAnimesDOM() {
 
         items.forEach((item, index) => {
             item.addEventListener('click', () => {
-                currentIndex = index
-                updateActiveItem()
-
-                const animeId = item.getAttribute('data-id')
-                window.location.href = `/dynamic.html?type=anime&id=${animeId}`
+                if (index === currentIndex) {
+                    const mangaId = item.getAttribute('data-id')
+                    window.location.href = `/dynamic.html?type=manga&id=${mangaId}`
+                } else {
+                    currentIndex = index
+                    updateActiveItem()
+                }
             })
         })
 

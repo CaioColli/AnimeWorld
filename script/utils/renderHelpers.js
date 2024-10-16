@@ -108,9 +108,7 @@ function generateVolumes(volumes) {
 
 function generateNumberFavorites(favorite, className) {
     return favorite && favorite > 0 ?
-        `<span class=${className}><div class="favorites-icon"></div>${favorite.toLocaleString('pt-BR', 
-        {minimumFractionDigits: 2, maximumFractionDigits: 2}
-    )}  </span>` :
+        `<span class=${className}><div class="favorites-icon"></div>${favorite}  </span>` :
         ''
 }
 

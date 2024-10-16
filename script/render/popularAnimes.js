@@ -3,8 +3,6 @@ import { generateInformations } from '../utils/renderHelpers.js'
 
 export async function renderPopularAnimesList() {
     const animes = await fetchPopularAnimes()
-
-    //console.log(animes)
     
     const list = document.querySelector('#popular-animes-list')
 

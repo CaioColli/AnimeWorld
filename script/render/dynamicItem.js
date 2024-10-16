@@ -1,12 +1,13 @@
-import {
-    generateInformations
-} from '../utils/renderHelpers.js'
+import { generateInformations } from '../utils/renderHelpers.js'
 
 export async function renderDynamicItem(details) {
     if (!details) {
         console.error('Nenhum detalhe sobre o item selecionado!')
         return
     }
+
+    const isAnime = !!details.episodes // Verifica se é anime pela presença do campo 'episodes'
+    const isManga = !!details.chapters // Verifica se é mangá pela presença do campo 'chapters'
 
     const {
         authorInfo,
@@ -36,7 +37,8 @@ export async function renderDynamicItem(details) {
         yearClass: 'selected-release-year',
         favorites: details.favorites,
         favoritesClass: 'selected-favorites-info',
-        trailerVideo: details.trailer.embed_url,
+        //trailerVideo: details.trailer.embed_url,
+        trailerVideo: details.trailer ? details.trailer.embed_url : null,  // Somente para animes (se disponível)
         trailerVideoClass: 'selected-trailer-video',
         link: details.streaming,
         ulClassName: 'selected-content-header-list',
