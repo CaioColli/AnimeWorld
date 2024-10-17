@@ -17,6 +17,7 @@ export async function fetchAnimes() {
 
     if (response && Array.isArray(response)) {
         const animes = response.slice(0, 25)
+        console.log(animes)
         return animes
     } else {
         console.error('Nenhum anime encontrado.')
