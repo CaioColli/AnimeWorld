@@ -1,6 +1,8 @@
-import { generateInformations } from '../utils/renderHelpers.js'
+import {
+    generateInformations
+} from '../utils/renderHelpers.js'
 
-export async function renderDynamicItem(details) {
+export async function renderDynamicItem(details, itemType) {
     const container = document.querySelector('#dynamic-item')
     const header = document.querySelector('#dynamic-header')
 
@@ -35,7 +37,9 @@ export async function renderDynamicItem(details) {
         linksInfo,
     } = generateInformations({
         authors: details.authors,
+        authorsClass: 'selected-author-info',
         chapters: details.chapters,
+        chaptersClass: 'selected-chapters-info',
         episodes: details.episodes,
         episodesClass: 'selected-episodes-info',
         genres: details.genres,
@@ -43,6 +47,7 @@ export async function renderDynamicItem(details) {
         image: details.images.jpg.large_image_url,
         imageClass: 'selected-image',
         volumes: details.volumes,
+        volumesClass: 'selected-volumes-info',
         title: details.title,
         titleClass: 'selected-title-info',
         year: details.year,
@@ -50,11 +55,12 @@ export async function renderDynamicItem(details) {
         favorites: details.favorites,
         favoritesClass: 'selected-favorites-info',
         //trailerVideo: details.trailer.embed_url,
-        trailerVideo: details.trailer ? details.trailer.embed_url : null,  // Somente para animes (se disponível)
+        trailerVideo: details.trailer ? details.trailer.embed_url : null, // Somente para animes (se disponível)
         trailerVideoClass: 'selected-trailer-video',
         link: details.streaming,
         ulClassName: 'selected-content-header-list',
-        liClassName: 'selected-content-header-item'
+        liClassName: 'selected-content-header-item',
+        itemType
     })
 
     container.innerHTML = `
@@ -85,11 +91,7 @@ export async function renderDynamicItem(details) {
             </aside>
 
             <main class="item-content">
-                <header class="item-content-header">
-                    <h3 class="side-description-title">Links</h3>
-
-                    ${linksInfo}
-                </header>
+                ${linksInfo}
 
                 <section class="trailer-container">
                     ${trailerVideoInfo}

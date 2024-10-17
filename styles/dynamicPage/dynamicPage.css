@@ -79,7 +79,10 @@
 
 .selected-episodes-info,
 .selected-release-year,
-.selected-genres-info {
+.selected-genres-info,
+.selected-author-info,
+.selected-chapters-info,
+.selected-volumes-info {
     color: var(--WhiteColor);
 }
 
@@ -167,6 +170,7 @@
     display: flex;
     justify-content: center;
     backdrop-filter: blur(3px);
+    border-radius: 10px 10px 0 0;
     padding: 16px;
     position: absolute;
     width: 100%;

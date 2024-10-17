@@ -38,7 +38,7 @@ export async function logItemDetail() {
         console.log('Detalhes do item:', itemDetails)
 
         loadingOverlay.style.display = 'none'
-        renderDynamicItem(itemDetails)
+        renderDynamicItem(itemDetails, itemType)
     } catch (error) {
         console.error('Erro ao buscar anime:', error)
     }

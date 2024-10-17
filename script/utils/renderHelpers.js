@@ -1,6 +1,8 @@
 export function generateInformations({
     authors,
+    authorsClass = 'card-author',
     chapters,
+    chaptersClass = 'card-chapters',
     episodes,
     episodesClass = 'card-episodes',
     genres,
@@ -10,6 +12,7 @@ export function generateInformations({
     title,
     titleClass = 'card-title',
     volumes,
+    volumesClass = 'card-volumes',
     year,
     yearClass = 'card-release',
     favorites,
@@ -18,18 +21,19 @@ export function generateInformations({
     trailerVideoClass,
     link,
     ulClassName,
-    liClassName
+    liClassName,
+    itemType
 }) {
     const episodesInfo = generateEpisodesInfo(episodes, episodesClass)
     const titleInfo = generateTitle(title, titleClass)
     const releaseYearInfo = generateReleaseYear(year, yearClass)
     const genresInfo = generateGenres(genres, genresClass)
-    const authorInfo = generateAuthor(authors)
-    const chaptersInfo = generateChapters(chapters)
-    const volumesInfo = generateVolumes(volumes)
+    const authorInfo = generateAuthor(authors, authorsClass)
+    const chaptersInfo = generateChapters(chapters, chaptersClass)
+    const volumesInfo = generateVolumes(volumes, volumesClass)
     const imageInfo = generateImage(image, imageClass)
     const favoritesInfo = generateNumberFavorites(favorites, favoritesClass)
-    const trailerVideoInfo = generateTrailerVideo(trailerVideo, trailerVideoClass)
+    const trailerVideoInfo = itemType === 'anime' ? generateTrailerVideo(trailerVideo, trailerVideoClass) : ''
     const linksInfo = generateLinksUrl(link, ulClassName, liClassName)
 
     return {
@@ -80,29 +84,29 @@ function generateGenres(genres, className) {
     }
 }
 
-function generateAuthor(author) {
+function generateAuthor(author, className) {
     if (author && author.length > 0) {
         const authorName = author.map(data => data.name).join(', ')
 
         if (author.length > 1) {
-            return `<span class="card-author">Autores: ${authorName}</span>`
+            return `<span class=${className}>Autores: ${authorName}</span>`
         } else {
-            return `<span class="card-author">Autor: ${authorName}</span>`
+            return `<span class=${className}>Autor: ${authorName}</span>`
         }
     } else {
         return ''
     }
 }
 
-function generateChapters(chapters) {
+function generateChapters(chapters, className) {
     return chapters && chapters > 0 ?
-        `<span class="card-chapters">Episódios: ${chapters}</span>` :
+        `<span class=${className}>Episódios: ${chapters}</span>` :
         ''
 }
 
-function generateVolumes(volumes) {
+function generateVolumes(volumes, className) {
     return volumes && volumes > 0 ?
-        `<span class="card-volumes">Volumes: ${volumes}</span>` :
+        `<span class=${className}>Volumes: ${volumes}</span>` :
         ''
 }
 
@@ -120,26 +124,30 @@ function generateTrailerVideo(trailerURL, className) {
         <iframe class="${className}" src="${trailerURL}"allowfullscreen></iframe>
     </section>` :
         `
-        <section class="trailer-not-found-content">
-            <div class="trailer-not-found-message">
-                <h2 class="trailer-not-found-message-title">Trailer disponível 😭</h2>
-            </div>
+    <section class="trailer-not-found-content">
+        <div class="trailer-not-found-message">
+            <h2 class="trailer-not-found-message-title">Trailer disponível 😭</h2>
+        </div>
 
-            <div class="trailer-not-found"><div>
-        </section>
+        <div class="trailer-not-found"><div>
+    </section>
         `
 }
 
 function generateLinksUrl(links, ulClassName, liClassName) {
     if (Array.isArray(links) && links.length > 0) {
         return `
-        <ul class="${ulClassName}">
-            ${links.map(link => `
-                <li class=${liClassName}>
-                    <a class="links-anchor" href="${link.url}" target="_blank">${link.name || link.url}</a>
-                </li>
-            `).join('')}
-        </ul>`
+        <header class="item-content-header">
+            <h3 class="side-description-title">Links</h3>
+
+            <ul class="${ulClassName}">
+                ${links.map(link => `
+                    <li class=${liClassName}>
+                        <a class="links-anchor" href="${link.url}" target="_blank">${link.name || link.url}</a>
+                    </li>
+                `).join('')}
+            </ul>
+        </header>`
     } else {
         return ''
     }
