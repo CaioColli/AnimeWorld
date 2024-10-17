@@ -1,6 +1,4 @@
-import {
-    generateInformations
-} from '../utils/renderHelpers.js'
+import { generateInformations } from '../utils/renderHelpers.js'
 
 export async function renderDynamicItem(details, itemType) {
     const container = document.querySelector('#dynamic-item')

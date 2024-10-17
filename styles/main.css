@@ -6,6 +6,7 @@
 @import './initialPage/principalSection/carousel.css';
 @import './initialPage/principalSection/principalSection.css';
 @import './dynamicPage/dynamicPage.css';
+@import './animes/animes.css';
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
