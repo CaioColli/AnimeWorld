@@ -119,17 +119,17 @@ function generateNumberFavorites(favorite, className) {
 function generateTrailerVideo(trailerURL, className) {
     return trailerURL ?
         `
-    <section class="trailer-content">
-        <h2 class="title-article">Trailer</h2>
+    <section class="selected-trailer-content">
+        <h2 class="selected-title-article">Trailer</h2>
         <iframe class="${className}" src="${trailerURL}"allowfullscreen></iframe>
     </section>` :
         `
-    <section class="trailer-not-found-content">
-        <div class="trailer-not-found-message">
-            <h2 class="trailer-not-found-message-title">Trailer disponível 😭</h2>
+    <section class="selected-trailer-not-found-content">
+        <div class="selected-trailer-not-found-message">
+            <h2 class="selected-trailer-not-found-message-title">Trailer disponível 😭</h2>
         </div>
 
-        <div class="trailer-not-found"><div>
+        <div class="selected-trailer-not-found"><div>
     </section>
         `
 }
@@ -137,13 +137,13 @@ function generateTrailerVideo(trailerURL, className) {
 function generateLinksUrl(links, ulClassName, liClassName) {
     if (Array.isArray(links) && links.length > 0) {
         return `
-        <header class="item-content-header">
-            <h3 class="side-description-title">Links</h3>
+        <header class="selected-item-content-header">
+            <h3 class="selected-item-description-title">Links</h3>
 
             <ul class="${ulClassName}">
                 ${links.map(link => `
                     <li class=${liClassName}>
-                        <a class="links-anchor" href="${link.url}" target="_blank">${link.name || link.url}</a>
+                        <a class="selected-links-anchor" href="${link.url}" target="_blank">${link.name || link.url}</a>
                     </li>
                 `).join('')}
             </ul>

@@ -64,22 +64,22 @@ export async function renderDynamicItem(details, itemType) {
     })
 
     container.innerHTML = `
-        <div class="item-container">
+        <div class="selected-item-container">
         
-            <aside class="side-content">
-                <picture class="side-image">
+            <aside class="selected-side-content">
+                <picture>
                     ${imageInfo}
                 </picture>
 
-                <div class="side-title">
+                <div>
                     ${titleInfo}
                 </div>
                 
-                <div class="side-description">
+                <div class="selected-side-description">
                     ${favoritesInfo}
-                    <h3 class="side-description-title">Informações</h3>
+                    <h3 class="selected-side-description-title">Informações</h3>
 
-                    <ul class="item-content-side-list">
+                    <ul class="selected-item-content-side-list">
                         ${episodesInfo}
                         ${authorInfo}
                         ${chaptersInfo}
@@ -90,10 +90,10 @@ export async function renderDynamicItem(details, itemType) {
                 </div>
             </aside>
 
-            <main class="item-content">
+            <main class="selected-item-content">
                 ${linksInfo}
 
-                <section class="trailer-container">
+                <section class="selected-trailer-container">
                     ${trailerVideoInfo}
                 </section>
             </main>
