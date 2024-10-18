@@ -176,6 +176,16 @@
     }
 }
 
+.all-items-button-nav.disabled {
+    background-color: var(--TransparentBlack);
+    color: var(--GrayColor);
+    cursor: not-allowed;
+
+    &:hover {
+        transform: scale(1);
+    }
+}
+
 .all-animes-button {
     align-items: center;
     display: flex;

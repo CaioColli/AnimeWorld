@@ -1,14 +1,16 @@
 import { allAnimesButtons } from '../dom/allAnimes.js'
+import { selectedGenresForPagination } from '../dom/animesGenres.js'
 import { fetchAnimesByPage } from '../services/animeRequest.js'
 import { generateInformations } from '../utils/renderHelpers.js'
+import { fetchAnimesByGenre } from './loadAnimesGenres.js'
 
 export let currentPage = 1
 
-export async function renderAllAnimes() {
+export async function renderAllAnimes(filteredAnimes = null) {
     const list = document.querySelector('#animes-list')
     list.innerHTML = ''
 
-    const animes = await fetchAnimesByPage(currentPage)
+    const animes = filteredAnimes || await fetchAnimesByPage(currentPage)
 
     if (animes.length === 0) {
         console.error('Nenhum anime encontrado')
@@ -45,20 +47,37 @@ export async function renderAllAnimes() {
 
 export async function renderPageCurrent() {
     const currentValue = document.querySelector('#current-page-animes')
-
     currentValue.textContent = currentPage
 }
 
 export async function loadNextPage() {
     currentPage++
-    await renderAllAnimes()
+    if (selectedGenresForPagination.length > 0) {
+        const genresString = selectedGenresForPagination.join(',')
+        const animes = await fetchAnimesByGenre(genresString, currentPage)
+        await renderAllAnimes(animes)
+    } else {
+        await renderAllAnimes()
+    }
     await renderPageCurrent()
     allAnimesButtons()
 }
 
 export async function loadPrevPage() {
-    currentPage--
-    await renderAllAnimes()
-    await renderPageCurrent()
-    allAnimesButtons()
+    if (currentPage > 1) {
+        currentPage--
+        if (selectedGenresForPagination.length > 0) {
+            const genresString = selectedGenresForPagination.join(',')
+            const animes = await fetchAnimesByGenre(genresString, currentPage)
+            await renderAllAnimes(animes)
+        } else {
+            await renderAllAnimes()
+        }
+        await renderPageCurrent()
+        allAnimesButtons()
+    }
+}
+
+export function resetCurrentPage() {
+    currentPage = 1
 }

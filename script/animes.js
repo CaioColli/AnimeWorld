@@ -1,5 +1,6 @@
 import { allAnimesButtons, allAnimesSlide } from './dom/allAnimes.js'
-import { renderAllAnimes, renderPageCurrent } from './render/allAnimes.js'
+import { initGenreFilterButton } from './dom/animesGenres.js'
+import { renderAllAnimes } from './render/allAnimes.js'
 import { loadAnimesGenres } from './render/loadAnimesGenres.js'
 
 (async function init() {
@@ -12,6 +13,7 @@ import { loadAnimesGenres } from './render/loadAnimesGenres.js'
     allAnimesButtons()
     
     await loadAnimesGenres()
+    initGenreFilterButton()
     allAnimesSlide()
 
     loadingOverlay.style.display = 'none'

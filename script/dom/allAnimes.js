@@ -77,6 +77,8 @@ export function allAnimesButtons() {
         currentValue.style.display = 'flex'
     }
 
+    
+
     nextButton.onclick = async () => {
         pageContainer.style.display = 'none'
         loadingOverlay.style.display = 'flex'
