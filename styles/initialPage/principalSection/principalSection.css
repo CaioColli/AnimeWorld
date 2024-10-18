@@ -138,6 +138,10 @@
         align-items: center;
         padding: 0 0 0 24px;
     }
+
+    @media (max-width: 320px) {
+        padding: 0 0 0 16px;
+    }
 }
 
 .subtitle-container {
@@ -221,7 +225,7 @@
 .anime-recommendation {
     background-color: aqua;
     width: 100%;
-    
+
 }
 
 .search-result-section {
