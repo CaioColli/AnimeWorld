@@ -63,6 +63,7 @@
 
 .all-items-details {
     cursor: default;
+    padding: 24px 0;
 }
 
 .all-items-summary {
@@ -103,7 +104,13 @@
 
 .all-items-input-container {
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.all-items-input-item {
     align-items: center;
+    display: flex;
     gap: 8px;
 }
 
@@ -164,5 +171,3 @@
         transform: scale(0.98);
     }
 }
-
-.all-animes-container {}
