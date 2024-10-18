@@ -29,20 +29,22 @@ export async function renderPopularAnimesList() {
 
         const card = `
             <li class="list-item" id="list-popular-animes" data-id='${anime.mal_id}'>
-                <div class="card">
-                    <div class="card-content">
-                        ${imageInfo}
-                        <div class="card-description">
-                            ${titleInfo}
-                            ${episodesInfo}
-                            ${releaseYearInfo}
-                            ${genresInfo}
-                            ${authorInfo}
-                            ${chaptersInfo}
-                            ${volumesInfo}
+                <a href='/dynamic.html?type=anime&id=${anime.mal_id}' target="_blank">
+                    <div class="card">
+                        <div class="card-content">
+                            ${imageInfo}
+                            <div class="card-description">
+                                ${titleInfo}
+                                ${episodesInfo}
+                                ${releaseYearInfo}
+                                ${genresInfo}
+                                ${authorInfo}
+                                ${chaptersInfo}
+                                ${volumesInfo}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>    
+                </a>
             </li>
         `
 

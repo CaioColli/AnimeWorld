@@ -49,16 +49,6 @@ export function popularAnimesDOM() {
             updateActiveItem()
         })
 
-        items.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentIndex = index
-                updateActiveItem()
-
-                const animeId = item.getAttribute('data-id')
-                window.location.href = `/dynamic.html?type=anime&id=${animeId}`
-            })
-        })
-
         updateActiveItem()
     } else {
         console.error('Elementos não encontrados para a funcionalidade de carrossel')

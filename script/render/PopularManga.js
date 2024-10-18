@@ -33,18 +33,20 @@ export async function renderPopularMangasList() {
 
         const card = `
             <li class="list-item" id="list-popular-mangas" data-id='${manga.mal_id}'>
-                <div class="card">
-                    <div class="card-content">
-                        ${imageInfo}
-                    </div>
-                    <div class="card-description">
-                        ${titleInfo}
-                        ${authorInfo}
-                        ${chaptersInfo}
-                        ${volumesInfo}
-                        ${genresInfo}
-                    </div>
-                </div>
+                <a href='/dynamic.html?type=manga&id=${manga.mal_id}' target="_blank">
+                    <div class="card">
+                        <div class="card-content">
+                            ${imageInfo}
+                        </div>
+                        <div class="card-description">
+                            ${titleInfo}
+                            ${authorInfo}
+                            ${chaptersInfo}
+                            ${volumesInfo}
+                            ${genresInfo}
+                        </div>
+                    </div>    
+                </a>
             </li>
         `
 

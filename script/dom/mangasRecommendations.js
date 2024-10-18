@@ -54,14 +54,15 @@ export function mangasRecommendationsDOM() {
         items.forEach((item, index) => {
             item.addEventListener('click', () => {
                 if (index === currentIndex) {
-                    const mangaId = item.getAttribute('data-id')
-                    window.location.href = `/dynamic.html?type=manga&id=${mangaId}`
+                    const mangaId = item.dataset.id
+                    window.open(`/dynamic.html?type=manga&id=${mangaId}`, '_blank')
                 } else {
                     currentIndex = index
                     updateActiveItem()
                 }
             })
         })
+        
 
         updateActiveItem()
     } else {

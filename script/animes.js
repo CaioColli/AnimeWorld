@@ -1,16 +1,19 @@
-import { animesDOM } from './dom/animes.js'
-import { renderAnimes } from './render/animes.js'
+import { allAnimesButtons, allAnimesSlide } from './dom/allAnimes.js'
+import { renderAllAnimes, renderPageCurrent } from './render/allAnimes.js'
 import { loadAnimesGenres } from './render/loadAnimesGenres.js'
-import { fetchAnimesGenres } from './services/animesGenre.js'
 
 (async function init() {
-    const loadingOverlay = document.querySelector('#overlay')   
+    const loadingOverlay = document.querySelector('#overlay')
+    const pageContainer = document.querySelector('#all-animes-container')
 
     loadingOverlay.style.display = 'flex'
-
-    await renderAnimes()
+    pageContainer.style.display = 'none'
+    await renderAllAnimes()
+    pageContainer.style.display = 'flex'
+    allAnimesButtons()
+    
     await loadAnimesGenres()
-    animesDOM()
+    allAnimesSlide()
 
     loadingOverlay.style.display = 'none'
 })()

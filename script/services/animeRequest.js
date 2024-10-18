@@ -24,6 +24,16 @@ export async function fetchAnimes() {
     }
 }
 
+export async function fetchAnimesByPage(page) {
+    try {
+        const data = await fetchApi(`anime?page=${page}`)
+        return data
+    } catch (error) {
+        console.error('Erro ao buscar animes:', error)
+        return []
+    }
+}
+
 export async function fetchAnimeById(id) {
     try {
         const data = await fetchApi('anime', id, 'full')

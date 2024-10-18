@@ -25,12 +25,12 @@
         </div>
     </div>
 
-    <main class="all-items-container" id="all-items-container">
+    <main class="all-items-container" id="all-animes-container">
         <aside class="all-items-side-container">
             <nav class="all-items-nav">
                 <ul class="all-items-list">
                     <li class="all-items-item">
-                        <input type="text" placeholder="Pesquisar" class="all-items-text-input" id="search-input">
+                        <input type="text" placeholder="Pesquisar" class="all-items-text-input" id="search-animes-input">
                     </li>
                     <li class="all-items-item">
                         <details class="all-items-details">
@@ -50,13 +50,19 @@
         <div class="all-animes-container">
             <section class="items-contents">
                 <div class="subtitle-container">
-                    <h2 class="subtitle">Escolhas do editor</h2>
+                    <h2 class="subtitle">Animes</h2>
                 </div>
 
                 <div class="slider-container">
-                    <button id="editor-picks-animes-prev-button" class="slider-prev-button"></button>
-                    <ul id="editor-picks-animes-list" class="list"></ul>
-                    <button id="editor-picks-animes-next-button" class="slider-next-button"></button>
+                    <button id="animes-prev-button" class="slider-prev-button"></button>
+                    <ul id="animes-list" class="list"></ul>
+                    <button id="animes-next-button" class="slider-next-button"></button>
+                </div>
+
+                <div class="all-animes-button">
+                    <button class="more-content-button" id="prev-page-animes-button">Voltar</button>
+                    <span class="current-page-value" id="current-page-animes"></span>
+                    <button class="more-content-button" id="next-page-animes-button">Avançar</button>
                 </div>
             </section>
         </div>

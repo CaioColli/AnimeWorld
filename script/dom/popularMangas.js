@@ -49,16 +49,6 @@ export function popularMangasDOM() {
             updateActiveItem()
         })
 
-        items.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentIndex = index
-                updateActiveItem()
-
-                const mangaID = item.getAttribute('data-id')
-                window.location.href = `/dynamic.html?type=manga&id=${mangaID}`
-            })
-        })
-
         updateActiveItem()
     } else {
         console.error('Elementos não encontrados para a funcionalidade de carrossel')

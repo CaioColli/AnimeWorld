@@ -54,8 +54,8 @@ export function animesRecommendationsDOM() {
         items.forEach((item, index) => {
             item.addEventListener('click', () => {
                 if (index === currentIndex) {
-                    const animeId = item.getAttribute('data-id')
-                    window.location.href = `/dynamic.html?type=anime&id=${animeId}`
+                    const animeId = item.dataset.id
+                    window.open(`/dynamic.html?type=anime&id=${animeId}`, '_blank')
                 } else {
                     currentIndex = index
                     updateActiveItem()
