@@ -108,7 +108,7 @@
 .all-items-input-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
 
 .all-items-input-item {
@@ -120,8 +120,8 @@
 .all-items-input-checkBox {
     display: block;
     cursor: pointer;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 3px solid transparent;
     border-radius: 10px;
     position: relative;
@@ -157,6 +157,7 @@
 
 .all-items-input-label {
     color: var(--WhiteColor);
+    font-size: 18px;
 }
 
 .all-items-button-nav {
