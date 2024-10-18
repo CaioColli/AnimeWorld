@@ -7,7 +7,6 @@ import { loadAnimesGenres } from './render/loadAnimesGenres.js'
     const pageContainer = document.querySelector('#all-animes-container')
 
     loadingOverlay.style.display = 'flex'
-    pageContainer.style.display = 'none'
     await renderAllAnimes()
     pageContainer.style.display = 'flex'
     allAnimesButtons()
