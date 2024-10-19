@@ -118,11 +118,22 @@
     align-items: center;
     display: none;
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
     padding: 24px;
     padding-top: 120px;
 
     @media (max-width: 768px) {
         padding-top: 48px;
     }
+}
+
+.subsubTitle {
+    background-color: var(--GrayBg);
+    border-radius: 10px;
+    color: var(--WhiteColor);
+    font-size: 24px;
+    font-weight: 500;
+    padding: 16px;
+    text-align: center;
+    width: 100%;
 }
