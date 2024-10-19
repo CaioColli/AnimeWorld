@@ -26,21 +26,23 @@ export async function renderAnimeSearchResult(results) {
         })
 
         const card = `
-            <li class="list-item" id="list-searched-anime">
-                <div class="card">
-                    <div class="card-content">
-                        ${imageInfo}
-                        <div class="card-description">
-                            ${titleInfo}
-                            ${episodesInfo}
-                            ${releaseYearInfo}
-                            ${genresInfo}
-                            ${authorInfo}
-                            ${chaptersInfo}
-                            ${volumesInfo}
+            <li class="list-item" id="list-searched-anime" data-id='${result.mal_id}'>
+                <a href='/page/dynamicPage/index.html?type=anime&id=${result.mal_id}' target="_blank">
+                    <div class="card">
+                        <div class="card-content">
+                            ${imageInfo}
+                            <div class="card-description">
+                                ${titleInfo}
+                                ${episodesInfo}
+                                ${releaseYearInfo}
+                                ${genresInfo}
+                                ${authorInfo}
+                                ${chaptersInfo}
+                                ${volumesInfo}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </li>
         `
 

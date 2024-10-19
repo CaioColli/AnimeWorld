@@ -27,21 +27,23 @@ export async function renderMangaSearchResult(results) {
         })
 
         const card = `
-            <li class="list-item" id="list-searched-manga">
-                <div class="card">
-                    <div class="card-content">
-                        ${imageInfo}
-                        <div class="card-description">
-                            ${titleInfo}
-                            ${episodesInfo}
-                            ${releaseYearInfo}
-                            ${chaptersInfo}
-                            ${volumesInfo}
-                            ${authorInfo}
-                            ${genresInfo}
+            <li class="list-item" id="list-searched-manga" data-id='${result.mal_id}'>
+                <a href='/page/dynamicPage/index.html?type=manga&id=${result.mal_id}' target="_blank">
+                    <div class="card">
+                        <div class="card-content">
+                            ${imageInfo}
+                            <div class="card-description">
+                                ${titleInfo}
+                                ${episodesInfo}
+                                ${releaseYearInfo}
+                                ${chaptersInfo}
+                                ${volumesInfo}
+                                ${authorInfo}
+                                ${genresInfo}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </li>
         `
 
