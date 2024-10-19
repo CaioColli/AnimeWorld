@@ -2,6 +2,7 @@ import { allMangasButton, allMangasSlide } from './allMangasDom.js'
 import { initGenreFilterButton } from './mangasFilteredDom.js'
 import { renderAllMangas } from './renderAllMangas.js'
 import { loadMangasGenres } from './renderMangasFiltered.js'
+import { searchManga } from './searchMangas.js'
 
 (async function init() {
     const loadingOverlay = document.querySelector('#overlay')
@@ -13,6 +14,7 @@ import { loadMangasGenres } from './renderMangasFiltered.js'
     allMangasButton()
     
     await loadMangasGenres()
+    await searchManga()
     initGenreFilterButton()
     allMangasSlide()
 

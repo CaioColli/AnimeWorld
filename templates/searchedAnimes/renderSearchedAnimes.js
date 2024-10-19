@@ -6,23 +6,11 @@ export async function renderAnimeSearchResult(results) {
 
     results.forEach(result => {
         const {
-            authorInfo,
-            chaptersInfo,
-            episodesInfo,
-            genresInfo,
             imageInfo,
-            releaseYearInfo,
             titleInfo,
-            volumesInfo
         } = generateInformations({
             title: result.title_english || result.title,
-            episodes: result.episodes,
-            year: result.year,
-            image: result.images.jpg.large_image_url,
-            genres: result.genres,
-            authors: result.authors,
-            chapters: result.chapters,
-            volumes: result.volumes
+            image: result.images.jpg.large_image_url
         })
 
         const card = `
@@ -33,12 +21,6 @@ export async function renderAnimeSearchResult(results) {
                             ${imageInfo}
                             <div class="card-description">
                                 ${titleInfo}
-                                ${episodesInfo}
-                                ${releaseYearInfo}
-                                ${genresInfo}
-                                ${authorInfo}
-                                ${chaptersInfo}
-                                ${volumesInfo}
                             </div>
                         </div>
                     </div>
