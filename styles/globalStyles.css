@@ -513,6 +513,12 @@ body {
     }
 }
 
+.detail-title {
+    color: var(--WhiteColor);
+    font-weight: 500;
+    font-size: 32px;
+}
+
 .all-items-details {
     cursor: default;
     padding: 24px 0;
@@ -523,9 +529,10 @@ body {
     color: var(--WhiteColor);
     cursor: pointer;
     display: flex;
-    font-size: 24px;
+    font-size: 20px;
     gap: 8px;
     width: fit-content;
+    margin-bottom: 16px;
 }
 
 .all-items-summary::-webkit-details-marker {
@@ -537,21 +544,12 @@ body {
     background-image: url('../../icons/down-arrow.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 }
 
 .all-items-details[open] .all-items-summary::after {
     background-image: url('../../icons/up-arrow.svg');
-}
-
-.all-items-summary-content {
-    padding: 8px 0;
-}
-
-.all-items-summary-title {
-    color: var(--WhiteColor);
-    padding-bottom: 24px;
 }
 
 .all-items-input-container {
