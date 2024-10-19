@@ -399,6 +399,17 @@ body {
     }
 }
 
+.list-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
 .list-item {
     all: unset;
     flex: 1 1 250px;
