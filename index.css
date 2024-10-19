@@ -1,15 +1,6 @@
 @import './styles/reset.css';
-@import './styles/reset.css';
 @import './styles/variables.css';
-@import './styles/header.css';
-@import './styles/loader.css';
-@import './styles/card.css';
-@import './styles/initialPage/principalSection/carousel.css';
-@import './styles/initialPage/principalSection/principalSection.css';
-/* @import './styles/dynamicPage/dynamicPage.css'; */
 @import './page/dynamicPage/index.css';
-/* @import './styles/animes/animes.css'; */
-@import './page/allAnimes/index.css';
 @import './styles/globalStyles.css';
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
