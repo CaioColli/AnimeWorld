@@ -1,3 +1,18 @@
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--WhiteColor);
+    border-radius: 50px;
+
+}
+
+
 body {
     background-color: var(--BlackBg);
     font-family: 'Exo 2', sans-serif;
