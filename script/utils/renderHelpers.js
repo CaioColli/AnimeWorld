@@ -119,17 +119,20 @@ function generateNumberFavorites(favorite, className) {
 function generateTrailerVideo(trailerURL, className) {
     return trailerURL ?
         `
-    <section class="selected-trailer-content">
-        <h2 class="selected-title-article">Trailer</h2>
-        <iframe class="${className}" src="${trailerURL}"allowfullscreen></iframe>
+    <section class="selected-trailer-container">
+        <section class="selected-trailer-content">
+            <h2 class="selected-title-article">Trailer</h2>
+            <iframe class="${className}" src="${trailerURL}"allowfullscreen></iframe>
+        </section>
     </section>` :
         `
-    <section class="selected-trailer-not-found-content">
-        <div class="selected-trailer-not-found-message">
-            <h2 class="selected-trailer-not-found-message-title">Trailer disponível 😭</h2>
-        </div>
-
-        <div class="selected-trailer-not-found"><div>
+    <section class="selected-trailer-container">
+        <section class="selected-trailer-not-found-content">
+            <div class="selected-trailer-not-found-message">
+                <h2 class="selected-trailer-not-found-message-title">Trailer disponível 😭</h2>
+            </div>
+            <div class="selected-trailer-not-found"><div>
+        </section>
     </section>
         `
 }

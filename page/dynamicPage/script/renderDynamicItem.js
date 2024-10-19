@@ -52,7 +52,6 @@ export async function renderDynamicItem(details, itemType) {
         yearClass: 'selected-release-year',
         favorites: details.favorites,
         favoritesClass: 'selected-favorites-info',
-        //trailerVideo: details.trailer.embed_url,
         trailerVideo: details.trailer ? details.trailer.embed_url : null, // Somente para animes (se disponível)
         trailerVideoClass: 'selected-trailer-video',
         link: details.streaming,
@@ -60,6 +59,8 @@ export async function renderDynamicItem(details, itemType) {
         liClassName: 'selected-content-header-item',
         itemType
     })
+
+    const itemContentStyle = itemType === 'manga' ? 'style="display: none;"' : ''
 
     container.innerHTML = `
         <div class="selected-item-container">
@@ -88,7 +89,7 @@ export async function renderDynamicItem(details, itemType) {
                 </div>
             </aside>
 
-            <main class="selected-item-content">
+            <main class="selected-item-content" ${itemContentStyle}>
                 ${linksInfo}
 
                 <section class="selected-trailer-container">
