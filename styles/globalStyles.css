@@ -34,7 +34,7 @@ body {
     height: 50px;
     justify-content: center;
     transition: 0.2s ease;
-    width: 150px;
+    width: 100px;
 
     &:hover {
         transform: scale(0.98);
