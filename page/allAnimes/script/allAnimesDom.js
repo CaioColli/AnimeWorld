@@ -1,6 +1,9 @@
 import {  currentPage,  loadNextPage, loadPrevPage } from './renderAllAnimes.js'
 import { carousel } from '../../../script/utils/scrollList.js'
 
+let currentIndex = 0
+let items = []
+
 export function allAnimesSlide() {
     const {
         calculateScrollPosition,
@@ -15,9 +18,14 @@ export function allAnimesSlide() {
     let currentIndex = 0
 
     if (list && prevButton && nextButton) {
-        const items = document.querySelectorAll('#animes-item')
+
+        function updateItems() {
+            items = document.querySelectorAll('#animes-item')
+            return items
+        }
 
         function scrollToActiveItem() {
+            if (items.length === 0) return
             const activeItem = items[currentIndex]
             const listWidth = list.offsetWidth
             const scrollPosition = calculateScrollPosition(activeItem, listWidth)
@@ -33,6 +41,7 @@ export function allAnimesSlide() {
         }
 
         function updateActiveItem() {
+            updateItems()
             setActiveItem(items, currentIndex)
             scrollToActiveItem()
             updateButtonVisibility()
@@ -75,17 +84,43 @@ export function allAnimesButtons() {
         pageContainer.style.display = 'none'
         loadingOverlay.style.display = 'flex'
         await loadNextPage()
+        currentIndex = 0
+        allAnimesSlide()
         pageContainer.style.display = 'flex'
         loadingOverlay.style.display = 'none'
         allAnimesButtons()
+
+        const items = document.querySelectorAll('#animes-item')
+        if (items.length > 0) {
+            const listWidth = document.querySelector('#animes-list').offsetWidth
+            const firstItem = items[0]
+            const scrollPosition = (firstItem.offsetLeft - (listWidth / 2) + (firstItem.offsetWidth / 2))
+            document.querySelector('#animes-list').scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            })
+        }
     }
 
     prevButton.onclick = async () => {
         pageContainer.style.display = 'none'
         loadingOverlay.style.display = 'flex'
         await loadPrevPage()
+        currentIndex = 0
+        allAnimesSlide()
         pageContainer.style.display = 'flex'
         loadingOverlay.style.display = 'none'
         allAnimesButtons()
+
+        const items = document.querySelectorAll('#animes-item')
+        if (items.length > 0) {
+            const listWidth = document.querySelector('#animes-list').offsetWidth
+            const firstItem = items[0]
+            const scrollPosition = (firstItem.offsetLeft - (listWidth / 2) + (firstItem.offsetWidth / 2))
+            document.querySelector('#animes-list').scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            })
+        }
     }
 }

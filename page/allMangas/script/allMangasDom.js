@@ -1,6 +1,9 @@
 import { carousel } from '../../../script/utils/scrollList.js'
 import { currentPage, loadNextPage, loadPrevPage } from './renderAllMangas.js'
 
+let currentIndex = 0
+let items = []
+
 export function allMangasSlide() {
     const {
         calculateScrollPosition,
@@ -12,12 +15,15 @@ export function allMangasSlide() {
     const prevButton = document.querySelector('#mangas-prev-button')
     const nextButton = document.querySelector('#mangas-next-button')
 
-    let currentIndex = 0
-
     if (list && prevButton && nextButton) {
-        const items = document.querySelectorAll('#manga-item')
+        
+        function updateItems() {
+            items = document.querySelectorAll('#manga-item')
+            return items
+        }
 
         function scrollActiveItem() {
+            if (items.length === 0) return
             const activeItem = items[currentIndex]
             const listWidth = list.offsetWidth
             const scrollPosition = calculateScrollPosition(activeItem, listWidth)
@@ -33,6 +39,7 @@ export function allMangasSlide() {
         }
 
         function updateActiveItem() {
+            updateItems()
             setActiveItem(items, currentIndex)
             scrollActiveItem()
             updateButtonVisibility()
@@ -73,17 +80,43 @@ export function allMangasButton() {
         pageContainer.style.display = 'none'
         loadingOverlay.style.display = 'flex'
         await loadNextPage()
+        currentIndex = 0
+        allMangasSlide()
         pageContainer.style.display = 'flex'
         loadingOverlay.style.display = 'none'
-        allAnimesButtons()
+        allMangasButton()
+
+        const items = document.querySelectorAll('#manga-item')
+        if (items.length > 0) {
+            const listWidth = document.querySelector('#mangas-list').offsetWidth
+            const firstItem = items[0]
+            const scrollPosition = (firstItem.offsetLeft - (listWidth / 2) + (firstItem.offsetWidth / 2))
+            document.querySelector('#mangas-list').scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            })
+        }
     }
 
     prevButton.onclick = async () => {
         pageContainer.style.display = 'none'
         loadingOverlay.style.display = 'flex'
         await loadPrevPage()
+        currentIndex = 0
+        allMangasSlide()
         pageContainer.style.display = 'flex'
         loadingOverlay.style.display = 'none'
-        allAnimesButtons()
+        allMangasButton()
+
+        const items = document.querySelectorAll('#manga-item')
+        if (items.length > 0) {
+            const listWidth = document.querySelector('#mangas-list').offsetWidth
+            const firstItem = items[0]
+            const scrollPosition = (firstItem.offsetLeft - (listWidth / 2) + (firstItem.offsetWidth / 2))
+            document.querySelector('#mangas-list').scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            })
+        }
     }
 }
